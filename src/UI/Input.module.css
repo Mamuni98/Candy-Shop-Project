@@ -1,0 +1,43 @@
+.input {
+    margin: 1rem 0;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+  }
+  
+  .input label {
+    font-weight: bold;
+    flex: 1;
+    color: #010101;
+    margin-bottom: 0.5rem;
+  }
+  .input label,
+  .input input {
+    display: block;
+  }
+  
+  .input input {
+    flex: 3;
+    font: inherit;
+    padding: 0.35rem 0.35rem;
+    border-radius: 6px;
+    border: 1px solid #6e6c6c;
+  }
+  
+  .input input:focus {
+    outline: none;
+    border-color: rgb(7, 145, 163);
+    background: #baecfb;
+  }
+  .input.invalid input {
+    border-color: red;
+    background: #fbdada;
+  }
+
+  @media (min-width: 768px) {
+    .input {
+      align-items: center;
+      flex-direction: row;
+    }
+  
+  }
