@@ -1,16 +1,23 @@
 .candy {
-    margin: 2rem auto;
-    width: 90%;
-    max-width: 40rem;
+  max-width: 40rem;
+  width: 100%;
+  margin: 2rem auto;
+  animation: meals-appear 1s ease-out forwards;
   }
   
   .candy ul {
     list-style: none;
-    padding: 1rem;
+    margin: 0;
+    padding: 0;
   }
+  @keyframes meals-appear {
+    from {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
   
-  .candy li {
-    border: 1px solid #ccc;
-    margin: 0.5rem 0;
-    padding: 0.5rem;
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }

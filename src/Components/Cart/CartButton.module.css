@@ -1,16 +1,16 @@
 .button {
     position: fixed;
-    right: 0;
+    right: 0.5rem;
     cursor: pointer;
     font: inherit;
     border: none;
     background-color: #0485a5;
     color: white;
-    padding: 0.75rem 3rem;
+    padding: 0.75rem 0.75rem;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
-    border-radius: 25px;
+    border-radius: 20px;
     font-weight: bold;
   }
   
@@ -29,7 +29,6 @@
     background-color: #4cd8f8;
     padding: 0.25rem 1rem;
     border-radius: 25px;
-    margin-left: 1rem;
     font-weight: bold;
   }
   

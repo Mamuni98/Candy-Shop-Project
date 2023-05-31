@@ -1,4 +1,3 @@
-
 import classes from "./CandyListForm.module.css";
 import { useContext } from "react";
 import Input from "../../UI/Input";
@@ -18,22 +17,22 @@ const CandyListForm = (props) => {
     };
 
     cartCnxt.addItem(cartItems);
-    event.target.reset();
+    document.getElementById("amount_" + props.id).value = "1";
   };
   return (
     <form className={classes.form} onSubmit={formSubmitHandler}>
       <Input
         label="Amount"
+        id={"amount_" + props.id}
         input={{
-          id: "amount_" + props.id,
           type: "number",
           defaultValue: "1",
           min: "1",
-          max: "5",
+          max: "10",
           step: "1",
         }}
       />
-      <button type="submit">
+      <button onClick={formSubmitHandler} type="submit">
         +Add
       </button>
     </form>

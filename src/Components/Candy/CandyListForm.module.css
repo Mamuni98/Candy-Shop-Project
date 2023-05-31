@@ -1,22 +1,28 @@
 .form {
-    text-align: right;
-  }
-  
-  .form button {
-    font: inherit;
-    cursor: pointer;
-    background-color: #0aadca;
-    border: 1px solid #036b85;
-    color: white;
-    padding: 0.25rem 2rem;
-    border-radius: 20px;
-    font-weight: bold;
-  }
-  
-  .form button:hover,
-  .form button:active {
-    background-color: #036b85;
-    border-color:#036b85;
-  }
-  
-  
+  text-align: right;
+}
+
+.form button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #0aadca;
+  border: 1px solid #036b85;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.form button:hover,
+.form button:active {
+  background-color: #036b85;
+  border-color: #036b85;
+}
+
+.amountinput {
+  width: 3rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font: inherit;
+  padding-left: 0.5rem;
+}

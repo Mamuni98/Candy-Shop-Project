@@ -2,8 +2,9 @@ import classes from "./Candy.module.css";
 import CandyListForm from "./CandyListForm";
 
 const Candy = (props) => {
+ 
   return (
-    <li className={classes.meal}>
+    <li className={classes.list}>
       <div>
         <h3>{props.name}</h3>
         <div className={classes.description}>{props.description}</div>

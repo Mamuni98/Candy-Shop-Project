@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import axios from "axios";
 const CartContext = React.createContext({
   items: [],
   totalAmount: 0,
@@ -8,7 +9,45 @@ const CartContext = React.createContext({
 
 export const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
-  const [totalFoodAmount, setTotalFoodAmount] = useState(Number(0));
+  const [totalCandyAmount, setTotalCandyAmount] = useState(Number(0));
+
+  const postCandiesRequest = useCallback(async () => {
+    try {
+      await axios.put(
+        "https://candy-shop-f15b9-default-rtdb.firebaseio.com/candies.json",
+        cartItems
+      );
+      //console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [cartItems]);
+
+  const getCandiesHandler = useCallback(async () => {
+    try {
+      const response = await axios.get(
+        "https://candy-shop-f15b9-default-rtdb.firebaseio.com/candies.json"
+      );
+      //console.log(response.data);
+      if (response.data) {
+        setCartItems(response.data);
+        let price = 0;
+        response.data.forEach((item) => {
+          price += Number(item.price) * Number(item.amount);
+        });
+        setTotalCandyAmount(price);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+  useEffect(() => {
+    postCandiesRequest();
+  }, [postCandiesRequest]);
+
+  useEffect(() => {
+    getCandiesHandler();
+  }, [getCandiesHandler]);
 
   const addItemInCartHandler = (item) => {
     const existingItemIndex = cartItems.findIndex(
@@ -28,7 +67,7 @@ export const CartProvider = (props) => {
     }
     setCartItems(updatedItems);
 
-    setTotalFoodAmount((prevTotal) => {
+    setTotalCandyAmount((prevTotal) => {
       const totalPrice = prevTotal + item.price * Number(item.amount);
       return totalPrice;
     });
@@ -70,10 +109,13 @@ export const CartProvider = (props) => {
     setCartItems(updatedItems);
     setTotalCandyAmount(totalCandyAmount + existingCartItem.price);
   };
-  const orderCandiesInCart = () => {
+  const orderCandiesInCart = async () => {
     setCartItems([]);
     setTotalCandyAmount(Number(0));
-  }
+    await axios.delete(
+      "https://candy-shop-f15b9-default-rtdb.firebaseio.com/candies.json"
+    );
+  };
 
   const cartContext = {
     items: cartItems,

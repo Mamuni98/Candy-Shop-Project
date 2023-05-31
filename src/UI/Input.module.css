@@ -10,11 +10,12 @@
     flex: 1;
     color: #010101;
     margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
   }
-  .input label,
+  /* .input label,
   .input input {
     display: block;
-  }
+  } */
   
   .input input {
     flex: 3;
@@ -22,6 +23,7 @@
     padding: 0.35rem 0.35rem;
     border-radius: 6px;
     border: 1px solid #6e6c6c;
+    padding-left: 1rem;
   }
   
   .input input:focus {
@@ -41,3 +43,4 @@
     }
   
   }
+

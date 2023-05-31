@@ -15,17 +15,9 @@
   }
   
   .price {
+    margin-top: 0.25rem;
     font-weight: bold;
     color: rgb(9, 142, 165);
     font-size: 1.25rem;
   }
-  .amount{
-    text-align: center;
-    font-weight: bold;
-    color: rgb(4, 160, 180);
-    font-size: 1.25rem;
-  }
-  .actions {
-    text-align: center;
-    float: inline-end;
-  }
+ 
